@@ -226,26 +226,7 @@ function toggleMusic() {
     else { p.pause(); s.className = "fas fa-volume-mute"; }
 }
 
-// --- 4. COMMENT & SEARCH ---
-function saveComment() {
-    const name = document.getElementById('userName').value;
-    const msg = document.getElementById('commentMsg').value;
-    const title = document.getElementById('mTitle').innerText.replace(/\s/g, '');
-    if(!name || !msg) return alert("Isi data!");
-    const cmt = { name, msg, time: new Date().toLocaleString('id-ID') };
-    const all = JSON.parse(localStorage.getItem('memo_' + title) || "[]");
-    all.unshift(cmt);
-    localStorage.setItem('memo_' + title, JSON.stringify(all));
-    document.getElementById('userName').value = "";
-    document.getElementById('commentMsg').value = "";
-    loadComments(title);
-}
 
-function loadComments(id) {
-    const display = document.getElementById('commentDisplay');
-    const all = JSON.parse(localStorage.getItem('memo_' + id) || "[]");
-    display.innerHTML = all.map(c => `<div class="comment-item"><strong>${c.name}</strong><p>${c.msg}</p><small>${c.time}</small></div>`).join("");
-}
 
 function filterKelas() {
     let val = document.getElementById('search').value.toUpperCase();
