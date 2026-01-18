@@ -14,6 +14,12 @@
         <div class="hero-content entry-anim"> 
             <p class="hero-top-text">SMAN 10 BOGOR PRESENTS</p>
             <h1 class="main-title">TEN DELEGATION</h1>
+            
+            <p class="hero-description">
+                Sebuah dekade yang terukir dalam memori, menyatukan ambisi dan persahabatan di bawah langit yang sama. 
+                Tempat di mana setiap tawa menjadi cerita, dan setiap pertemuan menjadi sejarah yang abadi.
+            </p>
+
             <p class="hero-sub-text">CLASS OF 2026</p>
             <a href="#gallery" class="btn-explore">BUKA MEMORI</a>
         </div>
@@ -23,16 +29,30 @@
     </section>
 
     <main id="gallery">
+        
+        <div class="highlight-container entry-anim">
+            <div class="highlight-frame">
+                <img src="img/angkatan.jpg" alt="TEN DELEGATION 2026" class="img-highlight" onerror="this.src='https://via.placeholder.com/1200x600'">
+                <div class="highlight-overlay">
+                    <span class="gold-text">THE GOLDEN LEGACY</span>
+                    <p>Persahabatan yang melampaui waktu.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="search-wrapper">
             <div class="search-bar">
                 <i class="fas fa-search"></i>
                 <input type="text" id="search" placeholder="Cari kenangan kelas..." onkeyup="filterKelas()">
             </div>
         </div>
+
         <div class="grid-kelas" id="kelasContainer"></div>
     </main>
+
     <div id="modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
+        
         <div class="modal-content">
             <h2 id="mTitle" class="modal-title-text gold-text"></h2>
             
@@ -41,7 +61,7 @@
                     <div class="icon-circle">
                         <i id="speakerIcon" class="fas fa-volume-mute"></i>
                     </div>
-                    <span>CLASS ANTHEM</span>
+                    <span>PLAY CLASS ANTHEM</span>
                 </button>
                 <audio id="player" loop></audio>
             </div>
