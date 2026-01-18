@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEN DELEGATION 2026 | SMAN 10 BOGOR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="cursor"></div>
+
+    <section class="hero">
+        <div class="hero-content entry-anim"> 
+            <p class="hero-top-text">SMAN 10 BOGOR PRESENTS</p>
+            <h1 class="main-title">TEN DELEGATION</h1>
+            <p class="hero-sub-text">CLASS OF 2026</p>
+            <a href="#gallery" class="btn-explore">BUKA MEMORI</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <main id="gallery">
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search" placeholder="Cari kenangan kelas..." onkeyup="filterKelas()">
+            </div>
+        </div>
+        <div class="grid-kelas" id="kelasContainer"></div>
+    </main>
+    <div id="modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <h2 id="mTitle" class="modal-title-text gold-text"></h2>
+            
+            <div class="music-box">
+                <button id="musicToggle" onclick="toggleMusic()">
+                    <div class="icon-circle">
+                        <i id="speakerIcon" class="fas fa-volume-mute"></i>
+                    </div>
+                    <span>CLASS ANTHEM</span>
+                </button>
+                <audio id="player" loop></audio>
+            </div>
+
+            <img id="mMainImg" src="" class="img-glow-main">
+            
+            <div class="divider"><span>Student Members</span></div>
+            <div id="mStudents" class="student-grid"></div>
+
+            <div class="divider"><span>Group Collection</span></div>
+            <div id="mGroups" class="group-grid"></div>
+
+            <div class="divider"><span>Memory Lane</span></div>
+            <div class="comment-area">
+                <div class="comment-input-grid">
+                    <input type="text" id="userName" placeholder="Nama Anda...">
+                    <textarea id="commentMsg" placeholder="Tulis pesan kenangan atau harapan untuk angkatan ini..."></textarea>
+                    <button onclick="saveComment()" class="btn-post">POST MESSAGE</button>
+                </div>
+                <div id="commentDisplay" class="comment-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="zoomModal" class="zoom-modal" onclick="closeZoom()">
+        <img id="zoomImg" src="">
+        <div class="zoom-info">
+            <h2 id="zoomName" class="gold-text"></h2>
+            <p id="zoomQuote"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
