@@ -29,7 +29,6 @@
     </section>
 
     <main id="gallery">
-        
         <div class="highlight-container entry-anim">
             <div class="highlight-frame">
                 <img src="img/angkatan.jpg" alt="TEN DELEGATION 2026" class="img-highlight" onerror="this.src='https://via.placeholder.com/1200x600'">
@@ -40,6 +39,23 @@
             </div>
         </div>
 
+        <div class="divider"><span>Legacy Organizations</span></div>
+        <div class="org-grid">
+            <div class="card-org" onclick="openOrg('OSIS', 'Inti Pengurus OSIS')">
+                <img src="img/osis_1.jpg" onerror="this.src='https://via.placeholder.com/600x400'">
+                <h3>OSIS</h3>
+            </div>
+            <div class="card-org" onclick="openOrg('MPK', 'Inti Pengurus MPK')">
+                <img src="img/mpk_1.jpg" onerror="this.src='https://via.placeholder.com/600x400'">
+                <h3>MPK</h3>
+            </div>
+        </div>
+
+        <div class="divider"><span>Extracurriculars</span></div>
+        <div class="ekskul-grid" id="ekskulContainer">
+            </div>
+
+        <div class="divider"><span>Class Gallery</span></div>
         <div class="search-wrapper">
             <div class="search-bar">
                 <i class="fas fa-search"></i>
@@ -52,7 +68,6 @@
 
     <div id="modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        
         <div class="modal-content">
             <h2 id="mTitle" class="modal-title-text gold-text"></h2>
             
@@ -88,9 +103,11 @@
 
     <div id="zoomModal" class="zoom-modal" onclick="closeZoom()">
         <img id="zoomImg" src="">
-        <div class="zoom-info">
+        <div class="zoom-info" onclick="event.stopPropagation()">
             <h2 id="zoomName" class="gold-text"></h2>
             <p id="zoomQuote"></p>
+            <div id="zoomBio" class="bio-details">
+                </div>
         </div>
     </div>
 
