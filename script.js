@@ -1,3 +1,12 @@
+/**
+ * ============================================================
+ * PROJECT   : TEN DELEGATION 2026 - SMAN 10 BOGOR
+ * AUTHOR    : FARREL AKBAR NAUFAL RAMADHAN
+ * INSTAGRAM : @farrelize
+ * VERSION   : 1.0.0 (The Golden Legacy Edition)
+ * ============================================================
+ */
+
 // --- 1. INITIALIZE & VISUAL EFFECTS ---
 document.addEventListener('DOMContentLoaded', () => {
     // Render Kartu Kelas (Urutan A-I)
@@ -15,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render List Ekskul
-    // Render List Ekskul (Masing-masing punya quote eksklusif)
+    // Render List Ekskul dengan Quote Eksklusif
     const ekskulCont = document.getElementById('ekskulContainer');
     const dataEkskul = [
         { nama: "Paskib", q: "Disiplin adalah nafas kami, kehormatan adalah segalanya." },
@@ -24,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { nama: "Pmr", q: "Inter Arma Caritas, kemanusiaan di atas segalanya." },
         { nama: "Literasi", q: "Membaca dunia, menuliskan sejarah baru." },
         { nama: "EC", q: "Language is the bridge to the global future." },
-        { nama: "Kirs", "q": "Inovasi lahir dari rasa ingin tahu yang tak terbatas." },
+        { nama: "Kirs", q: "Inovasi lahir dari rasa ingin tahu yang tak terbatas." },
         { nama: "Basket", q: "Win the heart before you win the game." },
         { nama: "Futsal", q: "Solidaritas di lapangan, saudara di kehidupan." },
         { nama: "Tradi", q: "Melestarikan akar, mempercantik masa depan." },
@@ -43,13 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.className = 'ekskul-card';
             div.innerHTML = `<span>${e.nama.toUpperCase()}</span>`;
-            // Sekarang mengirimkan quote asli si ekskul
             div.onclick = () => openOrg(e.nama, e.q); 
             ekskulCont.appendChild(div);
         });
     }
 
-    // Preloader
+    // Preloader Logic
     setTimeout(() => {
         const loader = document.getElementById('loader') || document.querySelector('.loading-screen');
         if(loader) {
@@ -59,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
 });
 
-// Custom Cursor
+// Efek Partikel & Cursor Custom
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => {
     if(cursor) {
@@ -68,7 +75,6 @@ document.addEventListener('mousemove', e => {
     }
 });
 
-// Dust Particles
 function createDust() {
     const dust = document.createElement('div');
     dust.style.cssText = `position:fixed; width:2px; height:2px; background:rgba(212,175,55,0.4); z-index:1; pointer-events:none; border-radius:50%;`;
@@ -84,7 +90,7 @@ function createDust() {
 }
 setInterval(createDust, 400);
 
-// --- 2. DATA KELAS (URUTAN A-I DENGAN QUOTE PERSONAL) ---
+// --- 2. DATA KELAS ---
 const dataKelas = [
     { id: 'A', names: [{ nama: "Agus S", ttl: "Bogor, 01 Jan 2008", alamat: "Pajajaran", ig: "@agus", quote: "Pioneer of Class A." }], groupCaptions: ["Alpha vibes"] },
     { id: 'B', names: [{ nama: "Budi P", ttl: "Bogor, 02 Feb 2008", alamat: "Baranangsiang", ig: "@budi", quote: "Bravo spirit." }], groupCaptions: ["Bravo moments"] },
@@ -119,7 +125,7 @@ const dataKelas = [
             { nama: "Naufal Ahmadinejad", ttl: "Bogor, 12 Jul 2008", alamat: "Bojong Gede", ig: "@naufal", quote: "Memories last forever." },
             { nama: "Raisa Zafira Rahmayani", ttl: "Bogor, 17 Apr 2008", alamat: "Tajur", ig: "@raisa", quote: "To the moon." },
             { nama: "Raisya Putri Gunawan", ttl: "Bogor, 24 Mei 2008", alamat: "Ciawi", ig: "@raisya", quote: "A story worth telling." },
-            { nama: "Revalina Gryska Zivanna Usior", ttl: "Papua, 13 Ags 2008", alamat: "Kedung", ig: "@reva", quote: "In love with moments." },
+            { nama: "Revalina Gryska Zivanna Usior", ttl: "Papua, 13 Ags 2008", alamat: "Komp. Brimob", ig: "@reva", quote: "In love with moments." },
             { nama: "Rizky Noval Prasetyo", ttl: "Bogor, 08 Nov 2008", alamat: "Curug", ig: "@rizky", quote: "Forever young." },
             { nama: "Sheila Aulia Febriyanti", ttl: "Bogor, 01 Feb 2008", alamat: "Pajajaran Regency", ig: "@sheila", quote: "Legacy starts here." },
             { nama: "Shevira Bianika Candra", ttl: "Bogor, 28 Mar 2008", alamat: "Sukaraja", ig: "@shevira", quote: "Defining excellence." },
@@ -145,12 +151,11 @@ function openModal(kelas) {
     document.getElementById('mMainImg').src = `img/${classId}.jpg`;
     document.getElementById('player').src = `music/${classId}.mp3`;
 
-    // Render Members (Personal Quote)
     const sCont = document.getElementById('mStudents');
     sCont.innerHTML = "";
     kelas.names.forEach((murid, index) => {
         const fotoMurid = `img/murid/${classId}_${index + 1}.jpg`;
-        const q = murid.quote || "Stay Gold."; // Ambil quote dari data murid
+        const q = murid.quote || "Stay Gold."; 
         
         const card = document.createElement('div');
         card.className = 'student-card';
@@ -163,7 +168,6 @@ function openModal(kelas) {
         sCont.appendChild(card);
     });
 
-    // Render Groups
     const gCont = document.getElementById('mGroups');
     gCont.innerHTML = "";
     for(let i=1; i<=5; i++) {
